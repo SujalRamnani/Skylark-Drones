@@ -1,125 +1,253 @@
-# 🚀 Monday.com Business Intelligence Agent
+<h1 align="center">
+🚀 Monday.com Business Intelligence Agent
+</h1>
 
-> **AI-powered Business Intelligence Assistant** that transforms live Monday.com data into actionable business insights using **Google Gemini AI**.
+<p align="center">
+AI-powered Business Intelligence Assistant built with <b>React</b>, <b>Node.js</b>, <b>Monday.com GraphQL API</b> and <b>Google Gemini AI</b>.
+</p>
+
+<p align="center">
 
 ![React](https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge&logo=react)
-![Node.js](https://img.shields.io/badge/Node.js-Express-339933?style=for-the-badge&logo=node.js)
-![Google Gemini](https://img.shields.io/badge/Google-Gemini-4285F4?style=for-the-badge&logo=google)
-![Monday.com](https://img.shields.io/badge/Monday.com-API-FF3D57?style=for-the-badge)
-![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
+
+![NodeJS](https://img.shields.io/badge/Node.js-Express-339933?style=for-the-badge&logo=node.js)
+
+![Gemini](https://img.shields.io/badge/Google-Gemini-blue?style=for-the-badge&logo=google)
+
+![Monday](https://img.shields.io/badge/Monday.com-API-ff3d57?style=for-the-badge)
+
+![License](https://img.shields.io/badge/License-MIT-success?style=for-the-badge)
+
+</p>
 
 ---
 
-## ✨ Overview
+# 📖 Table of Contents
 
-This project is an AI-powered Business Intelligence Assistant that enables users to ask business-related questions in natural language. The application fetches live data from multiple Monday.com boards and leverages Google Gemini to generate intelligent, context-aware insights and executive recommendations.
-
----
-
-## 🎯 Key Features
-
-- 🤖 AI-powered business insights
-- 📊 Live Monday.com data integration
-- 💬 Natural language question answering
-- 📈 Executive summaries & recommendations
-- ⚡ Fast React-based chat interface
-- 📝 Markdown-supported AI responses
-- 🔒 Secure API key management using `.env`
+- Overview
+- Features
+- Architecture
+- Tech Stack
+- Project Structure
+- Installation
+- Monday.com Configuration
+- API Flow
+- Example Questions
+- Security
+- Future Improvements
 
 ---
 
-## 🛠 Tech Stack
+# 🌟 Overview
 
-### Frontend
-- ⚛️ React
-- ⚡ Vite
-- 🎨 CSS
-- 📝 React Markdown
+The **Monday.com Business Intelligence Agent** enables users to interact with their project management data using natural language.
 
-### Backend
-- 🟢 Node.js
-- 🚀 Express.js
-- 📡 Monday.com GraphQL API
-- 🤖 Google Gemini API
-- 🔐 dotenv
-- 🌐 CORS
+Instead of manually analyzing boards, users can simply ask questions like:
+
+> *"Which projects are delayed?"*
+
+> *"Give me an executive summary."*
+
+> *"What are the biggest business risks?"*
+
+The application retrieves live project data from **Monday.com**, sends it to **Google Gemini**, and generates meaningful business insights.
 
 ---
 
-## 📂 Project Structure
+# ✨ Features
+
+✅ Natural Language Business Queries
+
+✅ Live Monday.com Data
+
+✅ Google Gemini AI Integration
+
+✅ Executive Summaries
+
+✅ Business Recommendations
+
+✅ Markdown Supported Responses
+
+✅ Secure Environment Variables
+
+✅ Responsive React Interface
+
+---
+
+# 🏗 System Architecture
 
 ```text
-Monday-BI-Agent/
-│
-├── backend/
-│   ├── server.js
-│   ├── package.json
-│   └── .env
-│
-├── frontend/
-│   ├── src/
-│   ├── package.json
-│   └── vite.config.js
-│
-└── README.md
+                    ┌────────────────────────┐
+                    │      React Client      │
+                    │    (Vite Frontend)     │
+                    └──────────┬─────────────┘
+                               │
+                         HTTP Request
+                               │
+                               ▼
+                 ┌─────────────────────────┐
+                 │   Express.js Backend    │
+                 │      REST API Server    │
+                 └──────────┬──────────────┘
+                            │
+            ┌───────────────┴────────────────┐
+            │                                │
+            ▼                                ▼
+   Monday.com GraphQL API          Google Gemini API
+            │                                │
+            └───────────────┬────────────────┘
+                            ▼
+                  AI Business Insights
+                            │
+                            ▼
+                   React Chat Interface
 ```
 
 ---
 
-## ⚙️ Installation
+# 🛠 Tech Stack
 
-### Clone the Repository
+## Frontend
 
-```bash
-git clone <repository-url>
-cd <repository-name>
+- ⚛ React
+- ⚡ Vite
+- 📝 React Markdown
+- 🎨 CSS
+
+## Backend
+
+- 🟢 Node.js
+- 🚀 Express.js
+- Axios
+- dotenv
+
+## APIs
+
+- Monday.com GraphQL API
+- Google Gemini API
+
+---
+
+# 📂 Project Structure
+
+```text
+Skylark-Drones
+│
+├── backend
+│   ├── server.js
+│   ├── package.json
+│   ├── routes
+│   └── .env
+│
+├── frontend
+│   ├── src
+│   ├── public
+│   └── package.json
+│
+├── README.md
+└── DECISION_LOG.md
 ```
 
-### Backend
+---
+
+# ⚙ Installation
+
+## Clone Repository
+
+```bash
+git clone https://github.com/yourusername/Skylark-Drones.git
+
+cd Skylark-Drones
+```
+
+---
+
+## Backend
 
 ```bash
 cd backend
+
 npm install
-```
 
-Create a `.env` file
-
-```env
-MONDAY_API_TOKEN=your_token
-DEALS_BOARD_ID=your_board_id
-WORK_BOARD_ID=your_board_id
-GEMINI_API_KEY=your_api_key
-```
-
-Run the server
-
-```bash
 npm start
 ```
 
 ---
 
-### Frontend
+## Frontend
 
 ```bash
 cd frontend
+
 npm install
+
 npm run dev
 ```
 
 ---
 
-## 💡 Example Questions
+# 🔧 Monday.com Configuration
 
-- Which deals are currently delayed?
-- Give me an executive summary.
-- Which projects require immediate attention?
-- Which work orders are at risk?
-- Show high-priority ongoing work.
+### Step 1
+
+Generate your **Monday.com Personal API Token**
+
+```
+Avatar
+→ Administration
+→ API
+→ Personal API Token
+```
 
 ---
 
-## 🔄 Workflow
+### Step 2
+
+Create two boards
+
+📌 Deals Board
+
+📌 Work Orders Board
+
+---
+
+### Step 3
+
+Get Board IDs
+
+Example
+
+```
+https://yourworkspace.monday.com/boards/123456789
+```
+
+Board ID
+
+```
+123456789
+```
+
+---
+
+### Step 4
+
+Create `.env`
+
+```env
+MONDAY_API_TOKEN=YOUR_TOKEN
+
+DEALS_BOARD_ID=YOUR_DEALS_BOARD_ID
+
+WORK_BOARD_ID=YOUR_WORK_BOARD_ID
+
+GEMINI_API_KEY=YOUR_GEMINI_KEY
+
+PORT=5000
+```
+
+---
+
+# 🔄 API Flow
 
 ```text
 User Question
@@ -134,41 +262,61 @@ Express Backend
 Monday.com API
       │
       ▼
-Google Gemini AI
+Google Gemini
       │
       ▼
 Business Insights
       │
       ▼
-Response to User
+Frontend Response
 ```
 
 ---
 
-## 🔐 Security
+# 💬 Example Questions
 
-- API Keys stored securely in `.env`
-- Sensitive credentials are **never committed** to GitHub.
-
----
-
-## 🚀 Future Improvements
-
-- 📊 Interactive Dashboard
-- 📈 Charts & Analytics
-- 📄 Export Reports
-- 🔐 User Authentication
-- 🎤 Voice Input
-- 🌍 Multi-board Support
+- Which deals are delayed?
+- Give me an executive summary.
+- Which work orders have the highest priority?
+- What projects need immediate attention?
+- Identify possible business risks.
 
 ---
 
-## 👨‍💻 Author
+# 🔐 Security
 
-**Sujal Ramnani**
+✔ API Keys stored in `.env`
 
-Final Assignment – **Monday.com Business Intelligence Agent**
+✔ `.env` excluded using `.gitignore`
+
+✔ No credentials committed to GitHub
 
 ---
 
-### ⭐ If you found this project interesting, consider giving it a star!
+# 🚀 Future Improvements
+
+- Authentication
+- Interactive Dashboard
+- Charts & Analytics
+- PDF Report Export
+- Multi-board Analytics
+- Conversation History
+- Voice Assistant
+
+---
+
+# 👨‍💻 Author
+
+## **Sujal Ramnani**
+
+**Monday.com Business Intelligence Agent**
+
+Built for the **Skylark Drones Technical Assignment**.
+
+---
+
+<p align="center">
+
+⭐ If you like this project, don't forget to star the repository!
+
+</p>
