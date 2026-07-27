@@ -3,6 +3,8 @@ import "./App.css";
 import ChatBox from "./components/ChatBox";
 import ChatInput from "./components/ChatInput";
 
+const API_URL = import.meta.env.VITE_API_URL;
+
 function App() {
   const [messages, setMessages] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -19,7 +21,7 @@ function App() {
     setLoading(true);
 
     try {
-      const response = await fetch("http://localhost:5000/chat", {
+      const response = await fetch(`${API_URL}/chat`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -41,7 +43,7 @@ function App() {
         ...prev,
         {
           sender: "ai",
-          text: err.message,
+          text: "❌ Unable to connect to the server. Please try again.",
         },
       ]);
     }
@@ -51,7 +53,6 @@ function App() {
 
   return (
     <div className="container">
-
       {/* Header */}
       <div className="header">
         <h1>🤖 AI Business Intelligence Assistant</h1>
@@ -60,7 +61,6 @@ function App() {
 
       {/* Dashboard */}
       <div className="dashboard">
-
         <div className="card">
           <h2>📊</h2>
           <h3>351</h3>
@@ -84,7 +84,6 @@ function App() {
           <h3>24×7</h3>
           <p>Assistant</p>
         </div>
-
       </div>
 
       {/* Chat */}
@@ -98,7 +97,6 @@ function App() {
 
       {/* Input */}
       <ChatInput onSend={sendQuestion} />
-
     </div>
   );
 }
